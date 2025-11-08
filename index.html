@@ -14,483 +14,483 @@
 
 <style>
 
-  *{margin:0;padding:0;box-sizing:border-box;font-family:"Cairo",sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Cairo",sans-serif;}
 
-  :root{
+:root{
 
-    --accent:#0abfff;
+--accent:#0abfff;    
 
-    --glass: rgba(255,255,255,0.05);
+--glass: rgba(255,255,255,0.05);    
 
-    --glass-strong: rgba(255,255,255,0.12);
+--glass-strong: rgba(255,255,255,0.12);    
 
-    --dark-bg:#0a0a0a;
+--dark-bg:#0a0a0a;    
 
-    --card-bg: rgba(20,20,25,0.6);
+--card-bg: rgba(20,20,25,0.6);    
 
-    --red: #ff3b3b;
+--red: #ff3b3b;    
 
-    --text-light: #f0f0f0;
+--text-light: #f0f0f0;    
 
-    --text-muted: rgba(255,255,255,0.55);
+--text-muted: rgba(255,255,255,0.55);    
 
-    --badge-bg: rgba(0,0,0,0.55);
+--badge-bg: rgba(0,0,0,0.55);
 
-  }
+}
 
-  body{
+body{
 
-    background: var(--dark-bg);
+background: var(--dark-bg);    
 
-    color: var(--text-light);
+color: var(--text-light);    
 
-    min-height: 100vh;
+min-height: 100vh;    
 
-    padding: 20px;
+padding: 20px;    
 
-    display:flex;
+display:flex;    
 
-    justify-content:center;
+justify-content:center;    
 
-    align-items:flex-start;
+align-items:flex-start;    
 
-    overflow-x:hidden;
+overflow-x:hidden;    
 
-    transition: background 0.3s ease;
+transition: background 0.3s ease;
 
-  }
+}
 
-  .container{
+.container{
 
-    width:100%;
+width:100%;    
 
-    max-width:780px;
+max-width:780px;    
 
-    padding:16px;
+padding:16px;    
 
-    backdrop-filter: blur(20px);
+backdrop-filter: blur(20px);
 
-  }
+}
 
-  .logo{
+.logo{
 
-    width:150px;
+width:150px;    
 
-    border-radius:20px;
+border-radius:20px;    
 
-    display:block;
+display:block;    
 
-    margin:0 auto 12px auto;
+margin:0 auto 12px auto;    
 
-    animation: logoFloat 5s ease-in-out infinite;
+animation: logoFloat 5s ease-in-out infinite;    
 
-    box-shadow: 0 8px 28px rgba(0,0,0,0.7);
+box-shadow: 0 8px 28px rgba(0,0,0,0.7);
 
-  }
+}
 
-  @keyframes logoFloat{
+@keyframes logoFloat{
 
-    0%,100%{transform:translateY(0)}
+0%,100%{transform:translateY(0)}    
 
-    50%{transform:translateY(-10px) rotate(-1deg)}
+50%{transform:translateY(-10px) rotate(-1deg)}
 
-  }
+}
 
-  h1{
+h1{
 
-    color: var(--accent);
+color: var(--accent);    
 
-    text-align:center;
+text-align:center;    
 
-    margin-bottom:8px;
+margin-bottom:8px;    
 
-    font-size:32px;
+font-size:32px;    
 
-    text-shadow:0 2px 8px rgba(0,0,0,0.5);
+text-shadow:0 2px 8px rgba(0,0,0,0.5);
 
-  }
+}
 
-  p.lead{
+p.lead{
 
-    color: var(--text-muted);
+color: var(--text-muted);    
 
-    text-align:center;
+text-align:center;    
 
-    margin-bottom:20px;
+margin-bottom:20px;    
 
-    font-size:15px;
+font-size:15px;    
 
-    line-height:1.4;
+line-height:1.4;
 
-  }
+}
 
-  .side-tabs{
+.side-tabs{
 
-    display:flex;
+display:flex;    
 
-    justify-content:center;
+justify-content:center;    
 
-    gap:12px;
+gap:12px;    
 
-    flex-wrap:wrap;
+flex-wrap:wrap;    
 
-    margin-bottom:24px;
+margin-bottom:24px;
 
-  }
+}
 
-  .side-tabs button{
+.side-tabs button{
 
-    backdrop-filter: blur(16px);
+backdrop-filter: blur(16px);    
 
-    background: var(--glass);
+background: var(--glass);    
 
-    border:1px solid rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.08);    
 
-    color: var(--text-light);
+color: var(--text-light);    
 
-    padding:12px 20px;
+padding:12px 20px;    
 
-    border-radius:20px;
+border-radius:20px;    
 
-    cursor:pointer;
+cursor:pointer;    
 
-    font-size:15px;
+font-size:15px;    
 
-    font-weight:600;
+font-weight:600;    
 
-    transition: transform .18s ease, box-shadow .18s ease, background .2s ease;
+transition: transform .18s ease, box-shadow .18s ease, background .2s ease;    
 
-    box-shadow:0 6px 20px rgba(0,0,0,0.5);
+box-shadow:0 6px 20px rgba(0,0,0,0.5);
 
-  }
+}
 
-  .side-tabs button:hover{
+.side-tabs button:hover{
 
-    transform: translateY(-4px);
+transform: translateY(-4px);    
 
-    box-shadow:0 12px 28px rgba(0,0,0,0.6);
+box-shadow:0 12px 28px rgba(0,0,0,0.6);
 
-  }
+}
 
-  .side-tabs button:active{
+.side-tabs button:active{
 
-    transform: translateY(-2px) scale(.98);
+transform: translateY(-2px) scale(.98);
 
-  }
+}
 
-  .page{display:none;opacity:0;transform:translateY(20px);transition:all .45s cubic-bezier(.2,.9,.3,1);}
+.page{display:none;opacity:0;transform:translateY(20px);transition:all .45s cubic-bezier(.2,.9,.3,1);}
 
-  .page.active{display:block;opacity:1;transform:translateY(0);}
+.page.active{display:block;opacity:1;transform:translateY(0);}
 
-  .update-box, .leak-box{
+.update-box, .leak-box{
 
-    background: var(--card-bg);
+background: var(--card-bg);    
 
-    border-radius:20px;
+border-radius:20px;    
 
-    padding:18px;
+padding:18px;    
 
-    margin:16px 0;
+margin:16px 0;    
 
-    border:1px solid rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.08);    
 
-    backdrop-filter: blur(24px);
+backdrop-filter: blur(24px);    
 
-    transition: transform .3s ease, box-shadow .3s ease, opacity .25s ease;
+transition: transform .3s ease, box-shadow .3s ease, opacity .25s ease;    
 
-    box-shadow: 0 12px 36px rgba(0,0,0,0.6);
+box-shadow: 0 12px 36px rgba(0,0,0,0.6);
 
-  }
+}
 
-  .update-box:hover, .leak-box:hover{
+.update-box:hover, .leak-box:hover{
 
-    transform: translateY(-6px) scale(1.01);
+transform: translateY(-6px) scale(1.01);
 
-  }
+}
 
-  .update-box img, .leak-box img{
+.update-box img, .leak-box img{
 
-    width:100%;
+width:100%;    
 
-    border-radius:16px;
+border-radius:16px;    
 
-    margin-top:12px;
+margin-top:12px;    
 
-    display:block;
+display:block;    
 
-    box-shadow: 0 8px 28px rgba(0,0,0,0.7);
+box-shadow: 0 8px 28px rgba(0,0,0,0.7);
 
-  }
+}
 
-  .update-box h3, .leak-box h3{
+.update-box h3, .leak-box h3{
 
-    color: var(--accent);
+color: var(--accent);    
 
-    margin-bottom:10px;
+margin-bottom:10px;    
 
-    text-align:center;
+text-align:center;    
 
-    font-size:20px;
+font-size:20px;
 
-  }
+}
 
-  .update-box p, .leak-box p{
+.update-box p, .leak-box p{
 
-    color: var(--text-light);
+color: var(--text-light);    
 
-    opacity:.95;
+opacity:.95;    
 
-    text-align:center;
+text-align:center;    
 
-    margin-bottom:12px;
+margin-bottom:12px;    
 
-    font-size:14px;
+font-size:14px;
 
-  }
+}
 
-  .btn-row{
+.btn-row{
 
-    display:flex;
+display:flex;    
 
-    justify-content:center;
+justify-content:center;    
 
-    gap:12px;
+gap:12px;    
 
-    flex-wrap:wrap;
+flex-wrap:wrap;    
 
-    margin-top:6px;
+margin-top:6px;
 
-  }
+}
 
-  .time-btn{
+.time-btn{
 
-    background: linear-gradient(180deg, rgba(10,191,255,0.12), rgba(10,191,255,0.05));
+background: linear-gradient(180deg, rgba(10,191,255,0.12), rgba(10,191,255,0.05));    
 
-    border:1px solid rgba(10,191,255,0.2);
+border:1px solid rgba(10,191,255,0.2);    
 
-    color:#eaf6ff;
+color:#eaf6ff;    
 
-    padding:10px 18px;
+padding:10px 18px;    
 
-    border-radius:18px;
+border-radius:18px;    
 
-    cursor:pointer;
+cursor:pointer;    
 
-    font-weight:600;
+font-weight:600;    
 
-    font-size:15px;
+font-size:15px;    
 
-    display:flex;
+display:flex;    
 
-    align-items:center;
+align-items:center;    
 
-    gap:8px;
+gap:8px;    
 
-    box-shadow: 0 6px 20px rgba(0,191,255,0.08);
+box-shadow: 0 6px 20px rgba(0,191,255,0.08);    
 
-    position:relative;
+position:relative;    
 
-    overflow:hidden;
+overflow:hidden;    
 
-    transition: all .15s ease;
+transition: all .15s ease;
 
-  }
+}
 
-  .time-btn:hover{
+.time-btn:hover{
 
-    transform: translateY(-3px);
+transform: translateY(-3px);    
 
-    box-shadow: 0 10px 26px rgba(0,191,255,0.12);
+box-shadow: 0 10px 26px rgba(0,191,255,0.12);
 
-  }
+}
 
-  .time-btn:active{
+.time-btn:active{
 
-    transform: translateY(-1px) scale(.98);
+transform: translateY(-1px) scale(.98);
 
-  }
+}
 
-  .red-btn{
+.red-btn{
 
-    background: linear-gradient(180deg, rgba(255,59,59,0.95), rgba(255,42,42,0.95));
+background: linear-gradient(180deg, rgba(255,59,59,0.95), rgba(255,42,42,0.95));    
 
-    border: none;
+border: none;    
 
-    color:#fff;
+color:#fff;    
 
-    padding:10px 18px;
+padding:10px 18px;    
 
-    border-radius:18px;
+border-radius:18px;    
 
-    cursor:pointer;
+cursor:pointer;    
 
-    font-weight:700;
+font-weight:700;    
 
-    font-size:15px;
+font-size:15px;    
 
-    display:flex;
+display:flex;    
 
-    align-items:center;
+align-items:center;    
 
-    gap:8px;
+gap:8px;    
 
-    box-shadow:0 10px 30px rgba(255,59,59,0.15);
+box-shadow:0 10px 30px rgba(255,59,59,0.15);    
 
-    position:relative;
+position:relative;    
 
-    overflow:hidden;
+overflow:hidden;    
 
-    transition: all .18s ease;
+transition: all .18s ease;
 
-  }
+}
 
-  .red-btn:hover{
+.red-btn:hover{
 
-    transform:translateY(-3px) scale(1.01);
+transform:translateY(-3px) scale(1.01);    
 
-    box-shadow:0 16px 36px rgba(255,59,59,0.2);
+box-shadow:0 16px 36px rgba(255,59,59,0.2);
 
-  }
+}
 
-  .red-btn:active{
+.red-btn:active{
 
-    transform:translateY(-1px) scale(.98);
+transform:translateY(-1px) scale(.98);
 
-  }
+}
 
-  .red-btn::after{
+.red-btn::after{
 
-    content:"";
+content:"";    
 
-    position:absolute;
+position:absolute;    
 
-    inset:0;
+inset:0;    
 
-    border-radius:18px;
+border-radius:18px;    
 
-    pointer-events:none;
+pointer-events:none;    
 
-    box-shadow:0 0 0 0 rgba(255,59,59,0.15);
+box-shadow:0 0 0 0 rgba(255,59,59,0.15);    
 
-    animation: pulseRed 2.6s infinite;
+animation: pulseRed 2.6s infinite;    
 
-    opacity:.9;
+opacity:.9;
 
-  }
+}
 
-  @keyframes pulseRed{
+@keyframes pulseRed{
 
-    0%{box-shadow:0 0 0 0 rgba(255,59,59,0.08)}
+0%{box-shadow:0 0 0 0 rgba(255,59,59,0.08)}    
 
-    70%{box-shadow:0 0 0 12px rgba(255,59,59,0)}
+70%{box-shadow:0 0 0 12px rgba(255,59,59,0)}    
 
-    100%{box-shadow:0 0 0 0 rgba(255,59,59,0)}
+100%{box-shadow:0 0 0 0 rgba(255,59,59,0)}
 
-  }
+}
 
-  .time-badge{
+.time-badge{
 
-    background: rgba(255,255,255,0.08);
+background: rgba(255,255,255,0.08);    
 
-    padding:5px 10px;
+padding:5px 10px;    
 
-    border-radius:12px;
+border-radius:12px;    
 
-    font-weight:700;
+font-weight:700;    
 
-    font-size:13px;
+font-size:13px;
 
-  }
+}
 
-  .time-btn:after, .red-btn:after{content:"";position:absolute;border-radius:50%;transform:scale(0);opacity:.25;pointer-events:none;}
+.time-btn:after, .red-btn:after{content:"";position:absolute;border-radius:50%;transform:scale(0);opacity:.25;pointer-events:none;}
 
-  .time-btn:active:after, .red-btn:active:after{animation: ripple 0.5s ease-out;}
+.time-btn:active:after, .red-btn:active:after{animation: ripple 0.5s ease-out;}
 
-  @keyframes ripple{to{transform:scale(6);opacity:0;}}
+@keyframes ripple{to{transform:scale(6);opacity:0;}}
 
-  .leak-img{
+.leak-img{
 
-    position:relative;
+position:relative;    
 
-    border-radius:14px;
+border-radius:14px;    
 
-    overflow:hidden;
+overflow:hidden;    
 
-    margin-top:12px;
+margin-top:12px;
 
-  }
+}
 
-  .leak-img img{
+.leak-img img{
 
-    display:block;
+display:block;    
 
-    width:100%;
+width:100%;    
 
-    height:auto;
+height:auto;    
 
-    filter: blur(6px) grayscale(.15) contrast(.95);
+filter: blur(6px) grayscale(.15) contrast(.95);    
 
-    transform-origin:center;
+transform-origin:center;    
 
-    transition: filter .35s ease, transform .45s ease;
+transition: filter .35s ease, transform .45s ease;    
 
-    will-change: filter, transform;
+will-change: filter, transform;
 
-  }
+}
 
-  .leak-img:hover img{
+.leak-img:hover img{
 
-    filter: blur(0px) grayscale(0) contrast(1.02);
+filter: blur(0px) grayscale(0) contrast(1.02);    
 
-    transform: scale(1.02);
+transform: scale(1.02);
 
-  }
+}
 
-  .leak-badge{
+.leak-badge{
 
-    position:absolute;
+position:absolute;    
 
-    top:12px;
+top:12px;    
 
-    left:12px;
+left:12px;    
 
-    background: linear-gradient(90deg, rgba(0,0,0,0.55), rgba(0,0,0,0.35));
+background: linear-gradient(90deg, rgba(0,0,0,0.55), rgba(0,0,0,0.35));    
 
-    color:#fff;
+color:#fff;    
 
-    padding:8px 12px;
+padding:8px 12px;    
 
-    border-radius:12px;
+border-radius:12px;    
 
-    font-weight:800;
+font-weight:800;    
 
-    font-size:13px;
+font-size:13px;    
 
-    backdrop-filter: blur(8px);
+backdrop-filter: blur(8px);    
 
-    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+box-shadow: 0 6px 18px rgba(0,0,0,0.6);
 
-  }
+}
 
-  .leak-caption{
+.leak-caption{
 
-    margin-top:10px;
+margin-top:10px;    
 
-    text-align:center;
+text-align:center;    
 
-    font-size:13px;
+font-size:13px;    
 
-    color:var(--text-muted);
+color:var(--text-muted);
 
-  }
+}
 
-  @media (max-width:520px){
+@media (max-width:520px){
 
-    .time-btn, .red-btn{padding:8px 14px;font-size:14px;}
+.time-btn, .red-btn{padding:8px 14px;font-size:14px;}    
 
-    .container{padding:12px;}
+.container{padding:12px;}
 
-  }
+}
 
 </style>
 
@@ -500,147 +500,179 @@
 
 <div class="container">
 
-  <img class="logo" src="https://i.ibb.co/9mDjsrRG/Picsart-25-11-01-10-18-14-336.png" alt="AXL BLOX Logo">
+<img class="logo" src="https://i.ibb.co/9mDjsrRG/Picsart-25-11-01-10-18-14-336.png" alt="AXL BLOX Logo">
 
-  <h1>AXL BLOX 🎮</h1>
+<h1>AXL BLOX 🎮</h1>
 
-  <p class="lead">موقعنا يقدم لك تحديثات وتسريبات خاصة بماب "سرقة" — أخبار أولاً بأول، مواعيد التحديثات، وتحليلات مميزة مخصصة للاعبين في المنطقة.</p>
+<p class="lead">موقعنا يقدم لك تحديثات وتسريبات خاصة بماب "سرقة" — أخبار أولاً بأول، مواعيد التحديثات، وتحليلات مميزة مخصصة للاعبين في المنطقة.</p>
 
-  <div class="side-tabs">
+<div class="side-tabs">
 
-    <button onclick="switchPage('home')">🏠 المنزل</button>
+<button onclick="switchPage('home')">🏠 المنزل</button>
 
-    <button onclick="switchPage('updates')">🧠 التحديثات</button>
+<button onclick="switchPage('updates')">🧠 التحديثات</button>
 
-    <button onclick="switchPage('leaks')">💣 التسريبات</button>
+<button onclick="switchPage('leaks')">💣 التسريبات</button>
 
-  </div>
+</div>
 
-  <!-- الصفحة الرئيسية -->
+<!-- الصفحة الرئيسية -->
 
-  <div class="page active" id="home">
+<div class="page active" id="home">
 
-    <h2 style="text-align:center;color:var(--accent)">مرحباً في AXL BLOX</h2>
+<h2 style="text-align:center;color:var(--accent)">مرحباً في AXL BLOX</h2>
 
-    <p style="text-align:center;color:var(--text-muted)">استخدم الأزرار أعلاه للتنقل بين الصفحات. التحديثات تظهر توقيت الشرق الأوسط ليلاً.</p>
+<p style="text-align:center;color:var(--text-muted)">استخدم الأزرار أعلاه للتنقل بين الصفحات. التحديثات تظهر توقيت الشرق الأوسط ليلاً.</p>
 
-    <div style="display:flex;justify-content:center;gap:16px;margin-top:18px;flex-wrap:wrap">
+<div style="display:flex;justify-content:center;gap:16px;margin-top:18px;flex-wrap:wrap">
 
-      <a href="https://www.tiktok.com/@axl13530?_r=1&_t=ZS-916AUmZRtUP" target="_blank" style="text-decoration:none">
+<a href="https://www.tiktok.com/@axl13530?_r=1&_t=ZS-916AUmZRtUP" target="_blank" style="text-decoration:none">
 
-        <div style="background:var(--glass);padding:10px 14px;border-radius:16px;border:1px solid rgba(255,255,255,255,0.04);display:flex;align-items:center;gap:8px">
+<div style="background:var(--glass);padding:10px 14px;border-radius:16px;border:1px solid rgba(255,255,255,255,0.04);display:flex;align-items:center;gap:8px">
 
-          <img src="https://cdn-icons-png.flaticon.com/512/3046/3046125.png" style="width:20px;height:20px">
+<img src="https://cdn-icons-png.flaticon.com/512/3046/3046125.png" style="width:20px;height:20px">
 
-          TikTok
+TikTok
 
-        </div>
+</div>
 
-      </a>
+</a>
 
-      <a href="https://t.me/axlblox" target="_blank" style="text-decoration:none">
+<a href="https://t.me/axlblox" target="_blank" style="text-decoration:none">
 
-        <div style="background:var(--glass);padding:10px 14px;border-radius:16px;border:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:8px">
+<div style="background:var(--glass);padding:10px 14px;border-radius:16px;border:1px solid rgba(255,255,255,255,0.04);display:flex;align-items:center;gap:8px">
 
-          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" style="width:20px;height:20px">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" style="width:20px;height:20px">
 
-          Telegram
+Telegram
 
-        </div>
+</div>
 
-      </a>
+</a>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
-  <!-- صفحة التحديثات -->
+<!-- صفحة التحديثات -->
 
-  <div class="page" id="updates">
+<div class="page" id="updates">
 
-    <h2 style="text-align:center;color:var(--accent)">📅 آخر التحديثات</h2>
+<h2 style="text-align:center;color:var(--accent)">📅 آخر التحديثات</h2>
 
-    
+<!-- حدث السبت الجديد -->
 
-    <div class="update-box">
+<div class="update-box">
 
-      <h3>⚡ تحديث السبت | قريباً</h3>
+<h3>⚡ تحديث السبت | قريباً</h3>
 
-      <img src="https://tr.rbxcdn.com/180DAY-4d3115cbe37d3e428a43b6d16b85bbf9/768/432/Image/Webp/noFilter" alt="Update image">
+<img src="https://tr.rbxcdn.com/180DAY-b1d7f51a01b58276921509facb7adff8/768/432/Image/Webp/noFilter" alt="Saturday Event">
 
-      <p>🕒 هذا التحديث مقرر ليلاً — التوقيت المحدد موجود بالأسفل.</p>
+<p>🕒 هذا التحديث مقرر ليلاً — 11:00 ليلاً شرق الأوسط</p>
 
-      <div class="btn-row">
+<p>✅ تمت اضافة مكينه جديدة، شخصيات قوية وحدث قوي.</p>
 
-        <button class="time-btn" onclick="showNote('تحديث السبت الساعة 10:00 ليلاً - شرق الأوسط')">
+<p>🕹️ بقي لحدث yin yang فقط سبع أيام.</p>
 
-          <span class="time-badge">⏰ 10:00</span>
+<div class="btn-row">
 
-          <span style="opacity:.85">ليلاً</span>
+<button class="time-btn" onclick="showNote('تحديث السبت الساعة 11:00 ليلاً - شرق الأوسط')">
 
-        </button>
+<span class="time-badge">⏰ 11:00</span>
 
-        <button class="red-btn" onclick="showNote('هذا التحديث مخصص فقط لتوقيت شرق الأوسط')">فقط شرق الأوسط</button>
+<span style="opacity:.85">ليلاً</span>
 
-      </div>
+</button>
 
-    </div>
+<button class="red-btn" onclick="showNote('هذا التحديث مخصص فقط لتوقيت شرق الأوسط')">فقط شرق الأوسط</button>
 
-    <div class="update-box">
+</div>
 
-      <h3>🌮 تحديث تاكو الثلاثاء</h3>
+</div>
 
-      <img src="https://techwiser.com/wp-content/uploads/2025/08/Who-Won-the-Grow-a-Garden-and-Steal-a-Brainrot-War-Recap.webp" alt="Taco update">
+<!-- تحديث تاكو الثلاثاء -->
 
-      <p>⚙️ تحسينات على عناصر الشخصية — وقت الإطلاق ليلاً.</p>
+<div class="update-box">
 
-      <div class="btn-row">
+<h3>🌮 تحديث تاكو الثلاثاء</h3>
 
-        <button class="time-btn" onclick="showNote('تحديث تاكو الساعة 2:00 ليلاً - شرق الأوسط')">
+<img src="https://techwiser.com/wp-content/uploads/2025/08/Who-Won-the-Grow-a-Garden-and-Steal-a-Brainrot-War-Recap.webp" alt="Taco update">
 
-          <span class="time-badge">⏰ 2:00</span>
+<p>⚙️ تحسينات على عناصر الشخصية — وقت الإطلاق ليلاً.</p>
 
-          <span style="opacity:.85">ليلاً</span>
+<div class="btn-row">
 
-        </button>
+<button class="time-btn" onclick="showNote('تحديث تاكو الساعة 2:00 ليلاً - شرق الأوسط')">
 
-        <button class="red-btn" onclick="showNote('تحديث تاكو يعمل فقط بتوقيت شرق الأوسط')">فقط شرق الأوسط</button>
+<span class="time-badge">⏰ 2:00</span>
 
-      </div>
+<span style="opacity:.85">ليلاً</span>
 
-    </div>
+</button>
 
-  </div>
+<button class="red-btn" onclick="showNote('تحديث تاكو يعمل فقط بتوقيت شرق الأوسط')">فقط شرق الأوسط</button>
 
-  <!-- صفحة التسريبات -->
+</div>
 
-  <div class="page" id="leaks">
+</div>
 
-    <h2 style="text-align:center;color:var(--accent)">🕵️‍♂️ آخر التسريبات</h2>
+</div>
 
-    <div class="leak-box">
+<!-- صفحة التسريبات -->
 
-      <h3>💰 تكت إضافة لوس موني موني باك</h3>
+<div class="page" id="leaks">
 
-      <div class="leak-img" role="img" aria-label="صورة تسريب - لوس موني موني">
+<h2 style="text-align:center;color:var(--accent)">🕵️‍♂️ آخر التسريبات</h2>
 
-        <span class="leak-badge">تسريب</span>
+<!-- تسريب لوس موني موني باك -->
 
-        <img src="https://cdn.discordapp.com/attachments/1376019152103280751/1435677088484163584/image.png?ex=690d7ebb&is=690c2d3b&hm=e61797565e6c65d4cc25f8ff13039f276a91f8bfcce5083b032b23dc1a3bbe46&">
+<div class="leak-box">
 
-      </div>
+<h3>💰 تكت إضافة لوس موني موني باك</h3>
 
-      <p class="leak-caption">🔥 تسريب جديد يخص الإضافة القادمة—انقر أو مرر للفحص السريع. توقيت النشر: ليلي (شرق الأوسط).</p>
+<div class="leak-img" role="img" aria-label="صورة تسريب - لوس موني موني">
 
-      <div style="display:flex;justify-content:center;margin-top:8px">
+<span class="leak-badge">تسريب</span>
 
-        <button class="time-btn" onclick="showNote('تسريب: إصدار محتمل - متابعة للتأكيد')">⏰ ليلي</button>
+<img src="https://cdn.discordapp.com/attachments/1376019152103280751/1435677088484163584/image.png?ex=690d7ebb&is=690c2d3b&hm=e61797565e6c65d4cc25f8ff13039f276a91f8bfcce5083b032b23dc1a3bbe46&">
 
-      </div>
+</div>
 
-    </div>
+<p class="leak-caption">🔥 تسريب جديد يخص الإضافة القادمة—انقر أو مرر للفحص السريع. توقيت النشر: ليلي (شرق الأوسط).</p>
 
-  </div>
+<div style="display:flex;justify-content:center;margin-top:8px">
+
+<button class="time-btn" onclick="showNote('تسريب: إصدار محتمل - متابعة للتأكيد')">⏰ ليلي</button>
+
+</div>
+
+</div>
+
+<!-- تسريب جديد -->
+
+<div class="leak-box">
+
+<h3>🛠️ ثلاث طرق جديدة!</h3>
+
+<div class="leak-img" role="img" aria-label="صورة تسريب - طرق جديدة">
+
+<span class="leak-badge">تسريب</span>
+
+<img src="https://cdn.discordapp.com/attachments/1376019152103280751/1436057453073530981/664c1e2c0e8ef60c8383a940f212a009.png?ex=69103279&is=690ee0f9&hm=b017b708ca5d71e834152ed038b86e119559e2bb344231585bd829955703148d&">
+
+</div>
+
+<p class="leak-caption">✅ تمت إضافة طرق جديدة، مع شخصيات جديدة. سيكون حدث أقوى تحديث وحدث.</p>
+
+<div style="display:flex;justify-content:center;margin-top:8px">
+
+<button class="time-btn" onclick="showNote('تسريب: طرق وشخصيات جديدة - متابعة')">⏰ ليلي</button>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -648,51 +680,51 @@
 
 const pages = {
 
-  home: document.getElementById('home'),
+home: document.getElementById('home'),
 
-  updates: document.getElementById('updates'),
+updates: document.getElementById('updates'),
 
-  leaks: document.getElementById('leaks')
+leaks: document.getElementById('leaks')
 
 };
 
 function switchPage(id){
 
-  Object.values(pages).forEach(p => p.classList.remove('active'));
+Object.values(pages).forEach(p => p.classList.remove('active'));
 
-  pages[id].classList.add('active');
+pages[id].classList.add('active');
 
-  setTimeout(()=> pages[id].scrollIntoView({behavior:'smooth', block:'start'}), 80);
+setTimeout(()=> pages[id].scrollIntoView({behavior:'smooth', block:'start'}), 80);
 
 }
 
 function showNote(text){
 
-  const existing = document.getElementById('axl-toast'); 
+const existing = document.getElementById('axl-toast');
 
-  if(existing) existing.remove();  
+if(existing) existing.remove();
 
-  const t = document.createElement('div');
+const t = document.createElement('div');
 
-  t.id = 'axl-toast';
+t.id = 'axl-toast';
 
-  t.textContent = text;
+t.textContent = text;
 
-  Object.assign(t.style,{
+Object.assign(t.style,{
 
-    position:'fixed', right:'20px', bottom:'20px', padding:'12px 18px',
+position:'fixed', right:'20px', bottom:'20px', padding:'12px 18px',    
 
-    background:'rgba(0,0,0,0.75)', color:'#fff', borderRadius:'12px',
+background:'rgba(0,0,0,0.75)', color:'#fff', borderRadius:'12px',    
 
-    border:'1px solid rgba(255,255,255,0.08)', zIndex:9999, boxShadow:'0 12px 36px rgba(0,0,0,0.6)', fontWeight:700
+border:'1px solid rgba(255,255,255,0.08)', zIndex:9999, boxShadow:'0 12px 36px rgba(0,0,0,0.6)', fontWeight:700
 
-  });
+});
 
-  document.body.appendChild(t);
+document.body.appendChild(t);
 
-  setTimeout(()=>{t.style.transition='transform .35s ease, opacity .35s ease'; t.style.transform='translateY(6px)';},40);
+setTimeout(()=>{t.style.transition='transform .35s ease, opacity .35s ease'; t.style.transform='translateY(6px)';},40);
 
-  setTimeout(()=> t.remove(),2800);
+setTimeout(()=> t.remove(),2800);
 
 }
 
@@ -700,4 +732,4 @@ function showNote(text){
 
 </body>
 
-                                                                                                                          </html>
+ </html>
