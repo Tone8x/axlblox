@@ -4,357 +4,153 @@
 
 <head>
 
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AXL BLOX - iOS Glass Dark</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<title>AXL ROB</title>
 
 <style>
 
-/* ----------------------- */
+* { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
 
-/*        GLOBAL UI        */
+body {
 
-/* ----------------------- */
+    height: 100vh;
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Cairo",sans-serif;}
+    background:#000;
 
-:root{
+    overflow:hidden;
 
---accent:#0abfff;
+    color:#fff;
 
---glass: rgba(255,255,255,0.05);
+    display:flex;
 
---glass-strong: rgba(255,255,255,0.12);
+    flex-direction:column;
 
---dark-bg:#0a0a0a;
-
---card-bg: rgba(20,20,25,0.6);
-
---red: #ff3b3b;
-
---text-light: #f0f0f0;
-
---text-muted: rgba(255,255,255,0.55);
-
---badge-bg: rgba(0,0,0,0.55);
+    align-items:center;
 
 }
 
-body{
+.bg {
 
-background: var(--dark-bg);
+    position:fixed;
 
-color: var(--text-light);
+    top:0; left:-50%;
 
-min-height: 100vh;
+    width:200%; height:100%;
 
-padding: 20px;
+    background:url('https://i.ibb.co/C3BzQCfk/Picsart-25-11-27-13-07-45-911.png') repeat-x center/cover;
 
-display:flex;
+    animation:move 55s linear infinite;
 
-justify-content:center;
-
-align-items:flex-start;
-
-overflow-x:hidden;
-
-transition: background 0.3s ease;
+    z-index:-1;
 
 }
 
-.container{
+@keyframes move { 0% { transform:translateX(0); } 100% { transform:translateX(50%); } }
 
-width:100%;
+.box {
 
-max-width:780px;
+    width:90%; max-width:700px;
 
-padding:16px;
+    margin-top:25px; margin-bottom:120px;
 
-backdrop-filter: blur(20px);
+    padding:35px; border-radius:25px;
 
-}
+    backdrop-filter:blur(18px) saturate(160%);
 
-.logo{
+    background:rgba(0,0,0,0.45);
 
-width:150px;
+    border:1px solid rgba(255,255,255,0.15);
 
-border-radius:20px;
+    box-shadow:0 0 25px rgba(255,255,255,0.1);
 
-display:block;
+    overflow-y:auto;
 
-margin:0 auto 12px auto;
-
-animation: logoFloat 5s ease-in-out infinite;
-
-box-shadow: 0 8px 28px rgba(0,0,0,0.7);
+    max-height:calc(100vh - 150px);
 
 }
 
-@keyframes logoFloat{
+.page { display:none; opacity:0; transform:translateY(20px); transition:0.5s; }
 
-0%,100%{transform:translateY(0)}
+.page.active { display:block; opacity:1; transform:translateY(0); }
 
-50%{transform:translateY(-10px) rotate(-1deg)}
+.title { font-size:2.5rem; font-weight:bold; margin-bottom:20px; text-shadow:0 0 10px rgba(255,255,255,0.3); text-align:center; }
 
-}
+.desc { font-size:1.2rem; color:#dcdcdc; margin-bottom:25px; text-align:center; }
 
-h1{
+.btns { display:flex; justify-content:center; gap:20px; }
 
-color: var(--accent);
+.btn { padding:12px 26px; border-radius:16px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.2); color:#fff; text-decoration:none; backdrop-filter:blur(10px); transition:0.3s; font-weight:bold; }
 
-text-align:center;
+.btn:hover { background:rgba(255,255,255,0.2); color:#000; transform:scale(1.06); }
 
-margin-bottom:8px;
+.tabs {
 
-font-size:32px;
+    position:fixed; bottom:25px; width:90%; max-width:700px;
 
-text-shadow:0 2px 8px rgba(0,0,0,0.5);
+    display:flex; justify-content:space-around; padding:12px;
 
-}
+    border-radius:22px; backdrop-filter:blur(20px);
 
-p.lead{
+    background:rgba(255,255,255,0.07);
 
-color: var(--text-muted);
+    border:1px solid rgba(255,255,255,0.15);
 
-text-align:center;
-
-margin-bottom:20px;
-
-font-size:15px;
-
-line-height:1.4;
+    box-shadow:0 0 20px rgba(255,255,255,0.15);
 
 }
 
-/* ----------------------- */
+.tab { padding:10px 22px; border-radius:14px; background:rgba(255,255,255,0.05); transition:0.3s; cursor:pointer; font-size:0.95rem; }
 
-/*        TABS UI          */
+.tab.active { background:rgba(255,255,255,0.23); color:#000; font-weight:bold; }
 
-/* ----------------------- */
+.leak-card {
 
-.side-tabs{
+    margin-bottom:35px; background: rgba(255,255,255,0.08);
 
-display:flex;
+    backdrop-filter: blur(20px); border-radius:20px;
 
-justify-content:center;
+    padding:15px; box-shadow: 0 8px 25px rgba(0,0,0,0.28);
 
-gap:12px;
+    opacity:0; transform: translateY(20px);
 
-flex-wrap:wrap;
-
-margin-bottom:24px;
+    transition:0.5s ease, transform 0.5s ease; text-align:center;
 
 }
 
-.side-tabs button{
+.leak-card.show { opacity:1; transform:translateY(0);}
 
-backdrop-filter: blur(16px);
+.leak-card h2 { font-size:1.6rem; margin-bottom:6px;}
 
-background: var(--glass);
+.leak-card p { font-size:1rem; opacity:0.85; margin-bottom:10px;}
 
-border:1px solid rgba(255,255,255,0.08);
+.leak-card img { width:100%; border-radius:15px; box-shadow:0 8px 25px rgba(0,0,0,0.3); transform:scale(0.95); opacity:0; transition:0.5s ease, transform 0.5s ease;}
 
-color: var(--text-light);
+.leak-card img.show { transform:scale(1); opacity:1;}
 
-padding:12px 20px;
+.leak-card img:hover { transform:scale(1.03); transition:0.3s ease; }
 
-border-radius:20px;
+.show-more-btn {
 
-cursor:pointer;
+    display:block; margin:15px auto 0 auto;
 
-font-size:15px;
+    padding:10px 20px; border-radius:14px;
 
-font-weight:600;
+    background:rgba(255,255,255,0.08);
 
-transition: transform .18s ease, box-shadow .18s ease, background .2s ease;
+    border:1px solid rgba(255,255,255,0.2);
 
-box-shadow:0 6px 20px rgba(0,0,0,0.5);
-
-}
-
-.side-tabs button:hover{
-
-transform: translateY(-4px);
-
-box-shadow:0 12px 28px rgba(0,0,0,0.6);
+    cursor:pointer; font-weight:bold; transition:0.3s;
 
 }
 
-.side-tabs button:active{
+.show-more-btn:hover { background:rgba(255,255,255,0.2); color:#000; }
 
-transform: translateY(-2px) scale(.98);
+#world-times { list-style:none; padding:0; margin-top:15px; display:none; }
 
-}
-
-/* ----------------------- */
-
-/*         PAGES           */
-
-/* ----------------------- */
-
-.page{display:none;opacity:0;transform:translateY(20px);transition:all .45s cubic-bezier(.2,.9,.3,1);}
-
-.page.active{display:block;opacity:1;transform:translateY(0);}
-
-/* ----------------------- */
-
-/*   UPDATE & LEAK BOX     */
-
-/* ----------------------- */
-
-.update-box, .leak-box{
-
-background: var(--card-bg);
-
-border-radius:20px;
-
-padding:18px;
-
-margin:16px 0;
-
-border:1px solid rgba(255,255,255,0.08);
-
-backdrop-filter: blur(24px);
-
-transition: transform .3s ease, box-shadow .3s ease, opacity .25s ease;
-
-box-shadow: 0 12px 36px rgba(0,0,0,0.6);
-
-}
-
-.update-box:hover, .leak-box:hover{
-
-transform: translateY(-6px) scale(1.01);
-
-}
-
-.update-box img, .leak-box img{
-
-width:100%;
-
-border-radius:16px;
-
-margin-top:12px;
-
-box-shadow: 0 8px 28px rgba(0,0,0,0.7);
-
-}
-
-/* ----------------------- */
-
-/*      BUTTONS            */
-
-/* ----------------------- */
-
-.btn-row{
-
-display:flex;
-
-justify-content:center;
-
-gap:12px;
-
-flex-wrap:wrap;
-
-margin-top:6px;
-
-}
-
-.time-btn{
-
-background: linear-gradient(180deg, rgba(10,191,255,0.12), rgba(10,191,255,0.05));
-
-border:1px solid rgba(10,191,255,0.2);
-
-color:#eaf6ff;
-
-padding:10px 18px;
-
-border-radius:18px;
-
-cursor:pointer;
-
-font-weight:600;
-
-font-size:15px;
-
-display:flex;
-
-align-items:center;
-
-gap:8px;
-
-transition: all .15s ease;
-
-}
-
-.time-btn:hover{
-
-transform: translateY(-3px);
-
-}
-
-.red-btn{
-
-background: linear-gradient(180deg, rgba(255,59,59,0.95), rgba(255,42,42,0.95));
-
-border:none;
-
-color:#fff;
-
-padding:10px 18px;
-
-border-radius:18px;
-
-cursor:pointer;
-
-font-weight:700;
-
-font-size:15px;
-
-transition: all .15s ease;
-
-}
-
-.red-btn:hover{
-
-transform: translateY(-3px);
-
-}
-
-.time-badge{
-
-background: rgba(255,255,255,0.08);
-
-padding:5px 10px;
-
-border-radius:12px;
-
-font-weight:700;
-
-font-size:13px;
-
-}
-
-/* IMG hover */
-
-.leak-img img{
-
-filter: blur(6px) grayscale(.15);
-
-transition:.35s;
-
-}
-
-.leak-img:hover img{
-
-filter: blur(0) grayscale(0);
-
-}
+#world-times li { margin-bottom:6px; text-align:right; color:#dcdcdc; font-size:1rem; }
 
 </style>
 
@@ -362,257 +158,235 @@ filter: blur(0) grayscale(0);
 
 <body>
 
-<div class="container">
+<div class="bg"></div>
 
-<img class="logo" src="https://i.ibb.co/9mDjsrRG/Picsart-25-11-01-10-18-14-336.png" alt="Logo">
+<div class="box">
 
-<h1>AXL BLOX 🎮</h1>
+<div id="home" class="page active">
 
-<p class="lead">موقع مخصص لتحديثات وتسريبات ماب "سرقة" — معلومات دقيقة وصور أولية.</p>
+    <div class="title">AXL ROB</div>
 
-<div class="side-tabs">
+    <div class="desc">هنا نقدم لكم عالم Roblox بطريقة جديدة</div>
 
-<button onclick="switchPage('home')">🏠 المنزل</button>
+    <div class="btns">
 
-<button onclick="switchPage('updates')">🧠 التحديثات</button>
+        <a href="https://t.me/axlblox" class="btn">قناة المطور</a>
 
-<button onclick="switchPage('leaks')">💣 التسريبات</button>
+        <a href="https://t.me/mmcmy" class="btn">قناتنا الاساسية</a>
 
-</div>
-
-<!-- HOME -->
-
-<div class="page active" id="home">
-
-<h2 style="text-align:center;color:var(--accent)">مرحباً في AXL BLOX</h2>
-
-<p style="text-align:center;color:var(--text-muted)">اختر القسم الذي تريد عرضه من الأعلى.</p>
+    </div>
 
 </div>
 
-<!-- UPDATES -->
+<div id="leaks" class="page">
 
-<div class="page" id="updates">
+    <div class="title">التسريبات</div>
 
-<h2 style="text-align:center;color:var(--accent)">📅 آخر التحديثات</h2>
+    <div class="desc">آخر الأخبار والملفات الخاصة بـ Roblox</div>
 
-<!-- UPDATE: SATURDAY NEW FULL -->
+    <div class="leak-card"><h2>سيتم اضافة 12x. حظ 😱</h2><p>في هذا التحديث</p><img src="https://cdn.discordapp.com/attachments/1376019152103280751/1443293563541655603/image.png?ex=69293420&is=6927e2a0&hm=6efdee58e2bb0a5f84c5b35d18c1b5c87760d704c15dc29c131117faf373f0f2&" alt=""></div>
 
-<div class="update-box">
+    <div class="leak-card"><h2>ايسوك الكريسمس</h2><p>يوم 5/6 ديسمبر</p><img src="https://cdn.discordapp.com/attachments/1376019152103280751/1442906476778885280/image.png?ex=6929c5df&is=6928745f&hm=65640318de45be96e5f2fc63a85bb673ecd6f54c7c5c80ba1a0dbf550814e366&" alt=""></div>
 
-<h3>⚡ تحديث السبت | الطفرة الإشعاعية</h3>
+    <div class="leak-card"><h2>لفازكا كريسمس</h2><p>ايضا يوم 6/5 ديسمبر</p><img src="https://cdn.discordapp.com/attachments/1376019152103280751/1442993650006102088/image.png?ex=69296e4f&is=69281ccf&hm=ad9ce40fe4d508a7da29fe57f7bf91e6b27a884c28c3de370a5aa638a1b602cf&" alt=""></div>
 
-<img src="https://static.beebom.com/wp-content/uploads/2025/07/next-Steal-a-Brainrot-Radioactive-Mutation-update.jpg?quality=75&strip=all">
+    <div class="leak-card"><h2>رجوع تونج تونج تونج ساهور!</h2><p>و بترند قديم اسمه تابوت!!!</p><img src="https://i.ibb.co/C3sG8YJz/Screenshot.jpg" alt=""></div>
 
-<p style="font-size:15px; opacity:.85; text-align:center;">
+</div>
 
-🧪 تحديث السبت هذه المرة غير عادي — حدث "الطفرة الإشعاعية" قادم بقوة، مع تغييرات ضخمة في اللعب.
+<div id="updates" class="page">
 
-</p>
+    <div class="title">التحديثات</div>
 
-<ul style="margin-top:14px; margin-bottom:14px; list-style:none; padding:0; text-align:center; line-height:1.7;">
+    <div class="desc">جميع التغييرات الجديدة سيتم عرضها هنا</div>
 
-<li>🔬 <b>Radioactive Mutation</b> – طفرة جديدة قوية</li>
+    <div class="leak-card show" id="update-card">
 
-<li>🎣 <b>Fishing Event</b> – حدث الصيد الإشعاعي</li>
+        <h2>تحديث سبت 🔨</h2>
 
-<li>🛒 <b>Brainrot Trader</b> – تاجر جديد مع عروض نادرة</li>
+        <p>التحديث يوم 29 نوفمبر الساعة 11:00</p>
 
-<li>💀 <b>New Brainrots</b> – إضافة عقول جديدة</li>
+        <img src="https://i.ytimg.com/vi/iXaVfvJ7l6U/hqdefault.jpg" alt="تحديث سبت">
 
-<li>⚠️ <b>Admin Mutations</b> – فعاليات مطورين قوية</li>
+        <button class="show-more-btn" id="toggle-times">إظهار المزيد</button>
 
-</ul>
+        <ul id="world-times"></ul>
 
-<!-- COUNTDOWN -->
-
-<p id="countdown-saturday" 
-
-style="color:var(--accent); font-size:20px; font-weight:700; text-align:center; margin-top:10px;">
-
-⏳ يتم حساب الوقت المتبقي...
-
-</p>
-
-<div class="btn-row">
-
-<button class="time-btn">
-
-<span class="time-badge">⏰ 11:00</span>
-
-<span>ليلاً</span>
-
-</button>
-
-<button class="red-btn">UTC+3 شرق أوسط</button>
+    </div>
 
 </div>
 
 </div>
 
-<!-- UPDATE: TUESDAY NEW -->
+<div class="tabs">
 
-<div class="update-box">
+    <div class="tab active" data-page="home">الرئيسية</div>
 
-<h3>🔵 تحديث الثلاثاء | العودة الرسمية</h3>
+    <div class="tab" data-page="leaks">التسريبات</div>
 
-<img src="https://techwiser.com/wp-content/uploads/2025/08/Who-Won-the-Grow-a-Garden-and-Steal-a-Brainrot-War-Recap.webp">
-
-<p style="opacity:.85; text-align:center;">
-
-🌮 تاكو 🌮ثلاثلاء — فقط لاكي بلوكات وحظ أقوى وتقوسة عناضرك
-
-</p>
-
-<ul style="margin-top:14px; margin-bottom:14px; list-style:none; padding:0; text-align:center; line-height:1.7;">
-
-<li>🌮 عودة الحدث بشكل كامل</li>
-
-<li>🎁 مكافآت جديدة</li>
-
-<li>   </li>
-
-<li>📦 إضافة موارد جديدة</li>
-
-<li>🔥 إصلاح الأخطاء العامة</li>
-
-</ul>
-
-<div class="btn-row">
-
-<button class="time-btn">
-
-<span class="time-badge">⏰ 2:00</span> فجراً
-
-</button>
-
-<button class="red-btn">UTC+3 شرق أوسط</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- LEAKS PAGE -->
-
-<div class="page" id="leaks">
-
-<h2 style="text-align:center;color:var(--accent)">💣 آخر التسريبات</h2>
-
-<div class="leak-box leak-img">
-
-<h3>🕵️‍♂️ تسريب جديد</h3>
-
-<img src="https://cdn.discordapp.com/attachments/1376019152103280751/1438289886909300898/image.png?ex=6918fa57&is=6917a8d7&hm=cf84d6ad5b4b6ef664dbb380980ad6448c919c0ee284d11d233ce82b1940d396&">
-
-<p style="opacity:.85; text-align:center;">
-
-🔥 تسريب الطفرة الجديدة — سيستبدل <strong>Yin Yang</strong> بالكامل، مع ميكانيكيات طاقة جديدة.
-
-</p>
-
-<ul style="text-align:center; opacity:.85; list-style:none; padding:0; line-height:1.6;">
-
-<li>⚡ طفرة بديلة عن Yin Yang</li>
-
-<li>🌌 طاقة وتأثيرات جديدة بالكامل</li>
-
-<li>💀 زيادة في قوة الضرر</li>
-
-<li>🎯 تحسين نظام الـ Combo</li>
-
-<li>⏳ سيظهر قريباً</li>
-
-</ul>
-
-<!-- تم إزالة countdown -->
-
-</div>
-
-</div>
+    <div class="tab" data-page="updates">التحديثات</div>
 
 </div>
 
 <script>
 
-// TABS SWITCH
+const tabs=document.querySelectorAll('.tab');
 
-const pages = {
+const pages=document.querySelectorAll('.page');
 
-home: document.getElementById('home'),
+tabs.forEach(tab=>{tab.onclick=()=>{
 
-updates: document.getElementById('updates'),
+    tabs.forEach(t=>t.classList.remove('active'));
 
-leaks: document.getElementById('leaks')
+    tab.classList.add('active');
 
-};
+    const target=tab.dataset.page;
 
-function switchPage(id){
+    pages.forEach(p=>p.classList.remove('active'));
 
-Object.values(pages).forEach(p => p.classList.remove('active'));
+    document.getElementById(target).classList.add('active');
 
-pages[id].classList.add('active');
+    if(target==="leaks"){
 
-}
+        const cards=document.querySelectorAll('#leaks .leak-card');
 
-// --------- COUNTDOWN SYSTEM ---------
+        cards.forEach((card,idx)=>{setTimeout(()=>{
 
-function startCountdown(elementId, targetHour, targetDay=0){ // targetDay=0 أي لا نهائي
+            card.classList.add('show');
 
-    const el = document.getElementById(elementId);
+            const img=card.querySelector('img');
 
-    function update(){
+            img.classList.add('show');
 
-        const now = new Date();
-
-        let target = new Date();
-
-        target.setHours(targetHour,0,0,0);
-
-        if(targetDay!==0){
-
-            target.setDate(target.getDate() + ((targetDay + 7 - target.getDay()) % 7));
-
-        }
-
-        if(now>target) target.setDate(target.getDate()+7);
-
-        const diff = target - now;
-
-        if(diff<=0){
-
-            el.innerHTML = "🚀 بدأ الآن!";
-
-            return;
-
-        }
-
-        const h = Math.floor(diff/(1000*60*60));
-
-        const m = Math.floor((diff/(1000*60))%60);
-
-        const s = Math.floor((diff/1000)%60);
-
-        el.innerHTML = `⏳ المتبقي: <b>${h}</b> ساعة <b>${m}</b> دقيقة <b>${s}</b> ثانية`;
+        },idx*300)});
 
     }
 
-    update();
+    if(target==="updates"){
 
-    setInterval(update,1000);
+        const card=document.getElementById("update-card");
+
+        setTimeout(()=>{
+
+            card.classList.add('show');
+
+            const img=card.querySelector('img');
+
+            img.classList.add('show');
+
+        },300);
+
+    }
+
+}});
+
+// --- العد التنازلي بالأيام والساعات والدقائق والثواني ---
+
+const updateTime=new Date("November 29, 2025 11:00:00 GMT+0000");
+
+const countries=[
+
+    {name:"العراق", offset:3},
+
+    {name:"مصر", offset:2},
+
+    {name:"سوريا", offset:3},
+
+    {name:"المغرب", offset:0},
+
+    {name:"السعودية", offset:3},
+
+    {name:"تونس", offset:1},
+
+    {name:"الإمارات", offset:4},
+
+    {name:"الكويت", offset:3},
+
+    {name:"ليبيا", offset:2},
+
+    {name:"قطر", offset:3},
+
+    {name:"البحرين", offset:3}
+
+];
+
+const worldTimesEl=document.getElementById("world-times");
+
+countries.forEach(c=>{
+
+    const li=document.createElement("li");
+
+    li.id=`time-${c.name.replace(/\s+/g,'')}`;
+
+    li.textContent=`${c.name}: -- يوم -- ساعة -- دقيقة -- ثانية`;
+
+    worldTimesEl.appendChild(li);
+
+});
+
+if("Notification" in window && Notification.permission!=="granted"){Notification.requestPermission();}
+
+function updateCountdown(){
+
+    const now=new Date();
+
+    countries.forEach(c=>{
+
+        const countryTime=new Date(updateTime.getTime() + (c.offset*60*60*1000));
+
+        const diff=countryTime-now;
+
+        const li=document.getElementById(`time-${c.name.replace(/\s+/g,'')}`);
+
+        if(diff<=0){
+
+            li.textContent=`${c.name}: تم التحديث! 🔔`;
+
+            if(Notification.permission==="granted"){ new Notification(`تحديث Roblox - ${c.name}`,{body:"تم وصول التحديث! 🔔"});}
+
+        } else {
+
+            const days=Math.floor(diff/(1000*60*60*24));
+
+            const hours=Math.floor((diff/(1000*60*60))%24);
+
+            const minutes=Math.floor((diff/1000/60)%60);
+
+            const seconds=Math.floor((diff/1000)%60);
+
+            li.textContent=`${c.name}: ${days} يوم ${hours} ساعة ${minutes} دقيقة ${seconds} ثانية`;
+
+        }
+
+    });
 
 }
 
-// Saturday 11:00 PM UTC+3 (6)
+setInterval(updateCountdown,1000);
 
-startCountdown("countdown-saturday",23,6);
+updateCountdown();
 
-// Tuesday 2:00 AM UTC+3 (3)
+// زر إظهار المزيد
 
-startCountdown("countdown-tuesday",2,3);
+const toggleBtn=document.getElementById("toggle-times");
 
-// Leak countdown removed
+toggleBtn.onclick=()=>{
+
+    if(worldTimesEl.style.display==="none"){ 
+
+        worldTimesEl.style.display="block"; 
+
+        toggleBtn.textContent="إخفاء التفاصيل";
+
+    } else { 
+
+        worldTimesEl.style.display="none"; 
+
+        toggleBtn.textContent="إظهار المزيد";
+
+    }
+
+}
 
 </script>
 
